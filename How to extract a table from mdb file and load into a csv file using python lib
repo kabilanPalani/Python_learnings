@@ -1,0 +1,7 @@
+import pandas as pd
+import pyodbc
+conn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:/Users/kabilan/file.mdb;')
+query = "SELECT * FROM mdb_table"
+dataf = pd.read_sql(query, conn)
+conn.close()
+dataf.to_csv('C:/Users/kabilan/mdb_table.csv', index=False)
